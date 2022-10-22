@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int int main()
+int main()
 {
 	/* codigo */
 	int nota; /*Creo la variable*/
