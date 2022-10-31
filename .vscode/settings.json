@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "assuan.h": "c",
+        "math.h": "c"
+    }
+}
