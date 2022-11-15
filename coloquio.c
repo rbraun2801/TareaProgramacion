@@ -66,6 +66,7 @@ do{
     switch (opcionMenu)
     {
     case 1:
+        /*Tratar de implementar una funcion para todo esto!*/
         printf("Cuantas entradas desea comprar?");
         scanf("%d",&n_entradas);
         for(int i=0;i<n_entradas;i++){
