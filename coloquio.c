@@ -44,16 +44,22 @@ int contarVentas(char filas[4][5]){
 }
 return ventas;
 }
-
-int main()
-{
-char filas[4][5]={{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'}};
-int opcionMenu, fila, col, ventas;
-printf("Bienvenido al Sistema de Ventas del CINE ITS\n");
-do{
-    char letra;
+void venta(char filas[4][5]){
     int n_entradas;
-    /* Creo el Menu */
+    printf("Cuantas entradas desea comprar?");
+    scanf("%d",&n_entradas);
+    int fila, col;
+    char letra;
+     for(int i=0;i<n_entradas;i++){
+        imprimirOcupacion(filas);
+        printf("Por favor ingrese letra y fila");
+        scanf(" %c %d",&letra,&fila);
+        col=letraACol(letra);
+        filas[fila-1][col]='O';
+        }
+};
+int menu(){
+    int opcionMenu;
     printf("Por Favor Seleccione una opcion del siguiente menu:\n");
     printf("1-Vender Entrada\n");
     printf("2-cancelar una entrada\n");
@@ -63,26 +69,25 @@ do{
     printf("Ingrese Opcion: \n");
     printf("-------------------------\n");
     scanf("%d", &opcionMenu);
-    switch (opcionMenu)
+    return opcionMenu;
+}
+int main()
+{
+char filas[4][5]={{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'}};
+int ventas;
+printf("Bienvenido al Sistema de Ventas del CINE ITS\n");
+int opcion;
+do{
+    /* Creo el Menu */
+    opcion=menu();
+    switch (opcion)
     {
     case 1:
         /*Tratar de implementar una funcion para todo esto!*/
-        printf("Cuantas entradas desea comprar?");
-        scanf("%d",&n_entradas);
-        for(int i=0;i<n_entradas;i++){
-        imprimirOcupacion(filas);
-        printf("Por favor ingrese letra y fila");
-        scanf(" %c %d",&letra,&fila);
-        col=letraACol(letra);
-        filas[fila-1][col]='O';
-        }
+        venta(filas);
         break;
     case 2:
-        imprimirOcupacion(filas);
-        printf("Por favor ingrese letra y fila");
-        scanf(" %c %d",&letra,&fila);
-        col=letraACol(letra);
-        filas[col][fila]='L';
+        venta(filas);
         break;
     case 3:
         imprimirOcupacion(filas);
@@ -92,6 +97,6 @@ do{
         printf("La cantidad recaudada hasta este momento es $ %d",ventas);
         break;
     }
-}while(opcionMenu!=5);
+}while(opcion!=5);
 return 0; 
 }
