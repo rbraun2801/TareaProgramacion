@@ -60,7 +60,11 @@ void venta(char filas[4][5], char ocupacion){
         printf("Por favor ingrese letra y fila");
         scanf(" %c %d",&letra,&fila);
         col=letraACol(letra);
+        if (filas[fila-1][col]=='O'){
+            printf("El asiento se encuentra ocupado");
+        }else{
         filas[fila-1][col]= ocupacion;
+        }
         }
 };
 /*Funcion que crea el menu y devuelve el valor del mismo para ser analizado*/
@@ -93,6 +97,7 @@ do{ /*Utilizo el do while para que ingrese al menos una vez*/
         /*Utilizo la funcion antes mencionada venta y paso el parametro O de ocupado junto a la matriz*/
         ocupacion='O';
         venta(filas,ocupacion);
+         printf("La Compra fue realizada con exito");
         break;
     case 2:
         /*Utilizo la funcion antes mencionada venta y paso el parametro L de Libre junto a la matriz*/
