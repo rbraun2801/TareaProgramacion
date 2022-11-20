@@ -85,7 +85,7 @@ int menu(){
 int main()
 {
 char filas[4][5]={{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'}};
-int ventas,opcion;
+int ventas,opcion,monto_entrada;
 char ocupacion;
 printf("Bienvenido al Sistema para cines del ITS\n");
 do{ /*Utilizo el do while para que ingrese al menos una vez*/
@@ -110,7 +110,10 @@ do{ /*Utilizo el do while para que ingrese al menos una vez*/
         break;
     case 4:
         /*Utilizo la funcion para contar la cantidad de asientos vendidos luego los multiplico por el costo de la entrada*/
-        ventas=contarVentas(filas)*300;
+        printf("Por favor ingrese el vslor de la entrada para calcular la recaudacion");
+        scanf("%d",&monto_entrada);
+        ventas=contarVentas(filas)*monto_entrada;
+        printf("La cantidad de entradas vendidas hasta el momento es:", contarVentas(filas));
         printf("La cantidad recaudada hasta este momento es $ %d",ventas);
         break;
     }
