@@ -87,7 +87,7 @@ int main()
 char filas[4][5]={{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'},{'L','L','L','L','L'}};
 int ventas,opcion;
 char ocupacion;
-printf("Bienvenido al Sistema de Ventas del CINE ITS\n");
+printf("Bienvenido al Sistema para cines del ITS\n");
 do{ /*Utilizo el do while para que ingrese al menos una vez*/
     /* Creo el Menu */
     opcion=menu();
